@@ -403,7 +403,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2381424367592215407, guid: 70bf8c22d809f0b4f978fae209aeeca6, type: 3}
       propertyPath: m_Name
-      value: Nsp_prefab
+      value: Nsp_prefab_modifie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022089199339928998, guid: 70bf8c22d809f0b4f978fae209aeeca6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4778777228916453543, guid: 70bf8c22d809f0b4f978fae209aeeca6, type: 3}
       propertyPath: fpCamera
@@ -412,6 +416,10 @@ PrefabInstance:
     - target: {fileID: 4778777228916453543, guid: 70bf8c22d809f0b4f978fae209aeeca6, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773008866739389765, guid: 70bf8c22d809f0b4f978fae209aeeca6, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9034295723452840745, guid: 70bf8c22d809f0b4f978fae209aeeca6, type: 3}
       propertyPath: looping
@@ -661,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679678662243627827, guid: e59fe41cdd642644d89924458332f3a2, type: 3}
       propertyPath: m_Name
-      value: RP9_prefab
+      value: RP9_prefab_modifie
       objectReference: {fileID: 0}
     - target: {fileID: 7577466482947554885, guid: e59fe41cdd642644d89924458332f3a2, type: 3}
       propertyPath: degats

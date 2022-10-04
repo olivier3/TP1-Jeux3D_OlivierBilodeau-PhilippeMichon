@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7577466482947554885}
   - component: {fileID: 3098877860582613323}
   - component: {fileID: 6789762044910610019}
+  - component: {fileID: 8803891021178192606}
   m_Layer: 0
-  m_Name: RP9_prefab
+  m_Name: RP9_prefab_modifie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,9 +165,25 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.08867869
-  m_Height: 0.8388568
+  m_Height: 0.6977345
   m_Direction: 2
-  m_Center: {x: 0.0037037432, y: 0.00019408762, z: 0.06226474}
+  m_Center: {x: 0.003703743, y: 0.00019408764, z: 0.052301943}
+--- !u!54 &8803891021178192606
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679678662243627827}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2874564606009839826
 PrefabInstance:
   m_ObjectHideFlags: 0

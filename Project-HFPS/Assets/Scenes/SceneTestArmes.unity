@@ -357,6 +357,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2057671351047765043, guid: 70bf8c22d809f0b4f978fae209aeeca6, type: 3}
+      propertyPath: m_Name
+      value: lamp_a_prefab_modifie
+      objectReference: {fileID: 0}
     - target: {fileID: 2381424367592215406, guid: 70bf8c22d809f0b4f978fae209aeeca6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -623,6 +627,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2355682429987729239, guid: e59fe41cdd642644d89924458332f3a2, type: 3}
+      propertyPath: m_Name
+      value: lamp_a_prefab_modifie
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524685593910483040, guid: e59fe41cdd642644d89924458332f3a2, type: 3}
+      propertyPath: m_Name
+      value: WFX_MF 4P RIFLE2 modifie
+      objectReference: {fileID: 0}
     - target: {fileID: 5679678662243627826, guid: e59fe41cdd642644d89924458332f3a2, type: 3}
       propertyPath: m_RootOrder
       value: 4

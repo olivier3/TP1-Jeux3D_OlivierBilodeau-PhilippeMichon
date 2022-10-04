@@ -236,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 528489021767991173, guid: b8fa9f4e5c4ee7741a5ee841b714ff17, type: 3}
       propertyPath: m_Name
-      value: lamp_a_prefab
+      value: lamp_a_prefab_modifie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fa9f4e5c4ee7741a5ee841b714ff17, type: 3}
@@ -449,7 +449,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 8eaaa4f553116f44b8459bc24201c514, type: 3}
       propertyPath: m_Name
-      value: WFX_MF FPS RIFLE3
+      value: WFX_MF FPS RIFLE3 modifie
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 8eaaa4f553116f44b8459bc24201c514, type: 3}
       propertyPath: m_IsActive

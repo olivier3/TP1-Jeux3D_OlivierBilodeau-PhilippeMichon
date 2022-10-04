@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 528489021767991172}
   m_Layer: 0
-  m_Name: lamp_a_prefab
+  m_Name: lamp_a_prefab_modifie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

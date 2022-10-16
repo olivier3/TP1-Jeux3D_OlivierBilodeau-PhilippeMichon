@@ -9,6 +9,7 @@ TagManager:
   - UIRamasserObjet
   - Canvas
   - Arme
+  - TutoChangerArme
   layers:
   - Default
   - TransparentFX

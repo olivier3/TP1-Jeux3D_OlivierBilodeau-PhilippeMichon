@@ -39,10 +39,16 @@ public class ChangerArme : MonoBehaviour
 
         if (compteur >= nbArmes)
         {
-            armes.transform.GetChild(0).gameObject.SetActive(true);
+            activerArme(armes);
             return;
         }
 
-        armes.transform.GetChild(compteur).gameObject.SetActive(true);
+        activerArme(armes, compteur);
+    }
+
+    private void activerArme(GameObject armes, int numeroArme = 0)
+    {
+        armes.transform.GetChild(numeroArme).gameObject.SetActive(true);
+        armes.transform.GetChild(numeroArme).gameObject.transform.Find("hitbox_ramassage").gameObject.SetActive(false);
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8773008866739389765}
   m_Layer: 0
   m_Name: Nsp_prefab_modifie
-  m_TagString: Untagged
+  m_TagString: Arme
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +58,7 @@ MonoBehaviour:
   degats: 10
   animationTir: {fileID: 9034295723466891849}
   multiplicateurDommageTete: 2
+  automatique: 0
 --- !u!82 &2412259978972731579
 AudioSource:
   m_ObjectHideFlags: 0

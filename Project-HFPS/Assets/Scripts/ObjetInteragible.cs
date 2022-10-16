@@ -18,57 +18,21 @@ public class ObjetInteragible : MonoBehaviour
     {
         if (estAccessible && Input.GetKeyDown(KeyCode.Mouse1))
         {
-            GameObject joueur = GameObject.FindGameObjectWithTag("Joueur");
-            Transform cameraJoueur = joueur.transform.GetChild(0);
-
-            GameObject stockageGuns = cameraJoueur.gameObject.transform.GetChild(0).gameObject;
-
-            // desactiver tout les autres guns pour que celui pris soit en main
-            foreach (Transform transformGunStocke in stockageGuns.transform)
-            {
-                transformGunStocke.gameObject.SetActive(false);
-            }
-
-            GameObject gun = this.gameObject.transform.parent.gameObject;
-
-            gun.GetComponent<Rigidbody>().useGravity = false;
-            gun.GetComponent<CapsuleCollider>().enabled = false;
-
-            gun.transform.parent = cameraJoueur.transform.GetChild(0);
-
-            // setter les coordonnees
-            gun.transform.position = new Vector3(stockageGuns.transform.position.x,
-                stockageGuns.transform.position.y,
-                stockageGuns.transform.position.z);
-
-            // reset rotation
-            // localRotation au lieu de rotation pour ne pas ignorer la rotation du parent
-            gun.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
-
             // enlever le message de pickup
             gestionnaire.AfficherMessagePourObjet();
 
-            gun.GetComponent<Armes>().fpCamera = cameraJoueur.gameObject.GetComponent<Camera>();
-            gun.GetComponent<Armes>().enabled = true;
+            GameObject objet = this.gameObject.transform.parent.gameObject;
 
-            // pour desactiver le script
-            this.enabled = false;
+            if (objet.tag == "Arme")
+            {
+                objet.transform.GetComponent<Armes>().Ramasser(this.gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
-
-    /*private void OnTriggerStay(Collider collider)
-    {
-        if (collider.transform.tag.Contains("Joueur"))
-        {
-            estAccessible = true;
-            Debug.Log(estAccessible.ToString());
-        }
-        else
-        {
-            estAccessible = false;
-            Debug.Log(estAccessible.ToString());
-        }
-    }*/
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -84,7 +48,6 @@ public class ObjetInteragible : MonoBehaviour
         if (collider.transform.tag.Contains("Joueur"))
         {
             estAccessible = false;
-            Debug.Log(estAccessible.ToString());
             gestionnaire.AfficherMessagePourObjet();
         }
     }

@@ -8,6 +8,7 @@ TagManager:
   - Joueur
   - UIRamasserObjet
   - Canvas
+  - Arme
   layers:
   - Default
   - TransparentFX

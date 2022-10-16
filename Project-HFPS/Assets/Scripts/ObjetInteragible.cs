@@ -5,11 +5,12 @@ using UnityEngine;
 public class ObjetInteragible : MonoBehaviour
 {
     private bool estAccessible = false;
+    private GestionUI gestionnaire;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gestionnaire = GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>();
     }
 
     // Update is called once per frame
@@ -44,6 +45,9 @@ public class ObjetInteragible : MonoBehaviour
             // localRotation au lieu de rotation pour ne pas ignorer la rotation du parent
             gun.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
+            // enlever le message de pickup
+            gestionnaire.AfficherMessagePourObjet();
+
             gun.GetComponent<Armes>().fpCamera = cameraJoueur.gameObject.GetComponent<Camera>();
             gun.GetComponent<Armes>().enabled = true;
 
@@ -71,7 +75,7 @@ public class ObjetInteragible : MonoBehaviour
         if (collider.transform.tag.Contains("Joueur"))
         {
             estAccessible = true;
-            Debug.Log(estAccessible.ToString());
+            gestionnaire.AfficherMessagePourObjet("Cliquez droit pour ramasser l'objet");
         }
     }
 
@@ -81,6 +85,7 @@ public class ObjetInteragible : MonoBehaviour
         {
             estAccessible = false;
             Debug.Log(estAccessible.ToString());
+            gestionnaire.AfficherMessagePourObjet();
         }
     }
 }

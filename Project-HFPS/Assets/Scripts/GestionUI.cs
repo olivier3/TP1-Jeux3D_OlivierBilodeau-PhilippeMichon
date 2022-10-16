@@ -6,11 +6,13 @@ using UnityEngine;
 public class GestionUI : MonoBehaviour
 {
     private TextMeshProUGUI textObjetsInteragibles;
+    private TextMeshProUGUI textChangementArme;
 
     // Start is called before the first frame update
     void Start()
     {
-        textObjetsInteragibles = GameObject.FindGameObjectWithTag("UIRamasserObjet").GetComponent<TextMeshProUGUI>();
+        textObjetsInteragibles = this.transform.Find("RamasserObjet").gameObject.GetComponent<TextMeshProUGUI>();
+        textChangementArme = this.transform.Find("TutorielChangerArme").gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -22,5 +24,10 @@ public class GestionUI : MonoBehaviour
     public void AfficherMessagePourObjet(string message = "")
     {
         textObjetsInteragibles.text = message;
+    }
+
+    public void AfficherMessageChangementArme(string message = "")
+    {
+        textChangementArme.text = message;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangerArme : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,8 @@ public class ChangerArme : MonoBehaviour
     void prochaineArme()
     {
         GameObject armes = this.transform.GetChild(0).gameObject;
+
+        GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>().AfficherMessageChangementArme();
 
         int nbArmes = armes.transform.childCount;
         int compteur = 0;

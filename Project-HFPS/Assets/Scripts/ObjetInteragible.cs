@@ -5,12 +5,12 @@ using UnityEngine;
 public class ObjetInteragible : MonoBehaviour
 {
     private bool estAccessible = false;
-    private GestionUI gestionnaire;
+    private long compteur = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        gestionnaire = GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>();
+
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class ObjetInteragible : MonoBehaviour
         if (estAccessible && Input.GetKeyDown(KeyCode.Mouse1))
         {
             // enlever le message de pickup
-            gestionnaire.AfficherMessagePourObjet();
+            GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>().AfficherMessagePourObjet();
 
             GameObject objet = this.gameObject.transform.parent.gameObject;
 
@@ -32,14 +32,18 @@ public class ObjetInteragible : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+
+        if (compteur < 1000)
+            compteur++;
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.transform.tag.Contains("Joueur"))
+        // compteur pour eviter faux true au debut
+        if (collider.transform.tag.Contains("Joueur") && compteur >= 1000)
         {
             estAccessible = true;
-            gestionnaire.AfficherMessagePourObjet("Cliquez droit pour ramasser l'objet");
+            GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>().AfficherMessagePourObjet("Cliquez droit pour ramasser l'objet");
         }
     }
 
@@ -48,7 +52,7 @@ public class ObjetInteragible : MonoBehaviour
         if (collider.transform.tag.Contains("Joueur"))
         {
             estAccessible = false;
-            gestionnaire.AfficherMessagePourObjet();
+            GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>().AfficherMessagePourObjet();
         }
     }
 }

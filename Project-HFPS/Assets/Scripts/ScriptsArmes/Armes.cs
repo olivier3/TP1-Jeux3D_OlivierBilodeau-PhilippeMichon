@@ -109,5 +109,7 @@ public class Armes : MonoBehaviour
 
         // pour desactiver le script
         hitboxRamassage.GetComponent<ObjetInteragible>().enabled = false;
+
+        GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>().AfficherMessageChangementArme("Pour changer d'arme: \"G\"");
     }
 }

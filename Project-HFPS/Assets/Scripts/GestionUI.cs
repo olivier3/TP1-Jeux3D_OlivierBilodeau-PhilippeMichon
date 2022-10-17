@@ -14,13 +14,31 @@ public class GestionUI : MonoBehaviour
     private GameObject player;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         textObjetsInteragibles = this.transform.Find("RamasserObjet").gameObject.GetComponent<TextMeshProUGUI>();
         textChangementArme = this.transform.Find("TutorielChangerArme").gameObject.GetComponent<TextMeshProUGUI>();
         textFractionsBluePrint = this.transform.Find("FractionsDuBluePrint").gameObject.GetComponent<TextMeshProUGUI>();
         textPoints = this.transform.Find("Points").gameObject.GetComponent<TextMeshProUGUI>();
         player = GameObject.Find("FPSController");
+
+        Destroy(this.transform.Find("IntroPart1").gameObject, 5);
+
+        yield return new WaitForSeconds(5);
+
+        GameObject introPart2 = this.transform.Find("IntroPart2").gameObject;
+
+        introPart2.SetActive(true);
+
+        Destroy(introPart2, 8);
+
+        yield return new WaitForSeconds(5);
+
+        GameObject introPart3 = this.transform.Find("IntroPart3").gameObject;
+
+        introPart3.SetActive(true);
+
+        Destroy(introPart3, 5);
     }
 
     // Update is called once per frame

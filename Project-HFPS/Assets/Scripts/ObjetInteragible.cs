@@ -22,6 +22,16 @@ public class ObjetInteragible : MonoBehaviour
 
             GameObject objet = this.gameObject.transform.parent.gameObject;
 
+            if (objet.name == "Portail" &&
+                gestion.CleDejaCree() &&
+                gestion.ObtenirNbPoints() >= 5000)
+            {
+                // enlever le message de pickup
+                gestion.AfficherMessagePourObjet();
+                // finPartie()
+                return;
+            }
+
             if (objet.tag == "Arme")
             {
                 // enlever le message de pickup
@@ -62,6 +72,18 @@ public class ObjetInteragible : MonoBehaviour
 
             GameObject objet = this.gameObject.transform.parent.gameObject;
             GestionUI gestion = GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>();
+
+            if (objet.name == "Portail")
+            {
+                if (gestion.CleDejaCree() && gestion.ObtenirNbPoints() >= 5000)
+                {
+                    gestion.AfficherMessagePourObjet("Cliquez droit pour fuir la zone");
+                    return;
+                }
+
+                gestion.AfficherMessagePourObjet("Il faut une clé et 5000 points pour fuir la zone");
+                return;
+            }
 
             if (objet.name == "Table")
             {

@@ -32,7 +32,7 @@ public class ZombieMouvement : MonoBehaviour
         {
             navMeshAgent.SetDestination(victime.position);
             animator.SetBool("Attaque", false);
-           
+
         }
         else
         {

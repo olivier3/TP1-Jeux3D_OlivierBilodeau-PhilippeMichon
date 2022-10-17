@@ -10,7 +10,7 @@ public class GestionUI : MonoBehaviour
     private TextMeshProUGUI textFractionsBluePrint;
     private TextMeshProUGUI textPoints;
     private int nbFractionsBluePrint = 0;
-    private bool cleObtenu = false;
+    public bool cleObtenu = false;
     private GameObject player;
 
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class GestionUI : MonoBehaviour
 
         if (cleObtenu)
         {
-            textFractionsBluePrint.text = "Clé obtenue";
+            textFractionsBluePrint.text = "ClÃ© obtenue";
             return;
         }
 
@@ -40,7 +40,7 @@ public class GestionUI : MonoBehaviour
             return;
         }
 
-        textFractionsBluePrint.text = "Blueprint complété";
+        textFractionsBluePrint.text = "Blueprint complÃ©tÃ©";
     }
 
     public void AfficherMessagePourObjet(string message = "")

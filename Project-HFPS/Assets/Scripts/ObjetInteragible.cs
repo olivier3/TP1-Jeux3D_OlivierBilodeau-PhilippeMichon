@@ -28,7 +28,7 @@ public class ObjetInteragible : MonoBehaviour
             {
                 // enlever le message de pickup
                 gestion.AfficherMessagePourObjet();
-                // finPartie()
+                objet.GetComponent<FinJeu>().Victoire();
                 return;
             }
 

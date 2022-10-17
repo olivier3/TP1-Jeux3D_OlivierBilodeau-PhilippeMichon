@@ -55,22 +55,22 @@ public class Armes : MonoBehaviour
 
             if (hit.transform.tag == "Ennemi" || hit.transform.tag == "EnnemiTete")
             {
-                //Ennemi target;
+                SanteEnnemi target;
                 int degatsInfliges = degats;
 
                 if (hit.transform.tag == "Ennemi")
                 {
-                    //target = hit.transform.GetComponent<Ennemi>();
+                    target = hit.transform.GetComponent<SanteEnnemi>();
                 }
                 else
                 {
-                    //target = hit.transform.parent.GetComponent<Ennemi>();
+                    target = hit.transform.parent.GetComponent<SanteEnnemi>();
                     degatsInfliges *= multiplicateurDommageTete;
                 }
 
 
-                //if (target != null)
-                //target.Blesser(degatsInfliges);
+                if (target != null)
+                    target.Blesser(degatsInfliges);
             }
         }
     }

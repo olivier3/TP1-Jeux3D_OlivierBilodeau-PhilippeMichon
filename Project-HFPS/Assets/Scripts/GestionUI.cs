@@ -10,8 +10,8 @@ public class GestionUI : MonoBehaviour
     private TextMeshProUGUI textFractionsBluePrint;
     private TextMeshProUGUI textPoints;
     private int nbFractionsBluePrint = 0;
-    private long nbPoints = 0;
     private bool cleObtenu = false;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +20,13 @@ public class GestionUI : MonoBehaviour
         textChangementArme = this.transform.Find("TutorielChangerArme").gameObject.GetComponent<TextMeshProUGUI>();
         textFractionsBluePrint = this.transform.Find("FractionsDuBluePrint").gameObject.GetComponent<TextMeshProUGUI>();
         textPoints = this.transform.Find("Points").gameObject.GetComponent<TextMeshProUGUI>();
+        player = GameObject.Find("FPSController");
     }
 
     // Update is called once per frame
     void Update()
     {
-        textPoints.text = "Points: " + nbPoints;
+        textPoints.text = "Points: " + player.GetComponent<Points>().GetPoints();
 
         if (cleObtenu)
         {
@@ -64,7 +65,7 @@ public class GestionUI : MonoBehaviour
 
     public long ObtenirNbPoints()
     {
-        return nbPoints;
+        return player.GetComponent<Points>().GetPoints();
     }
 
     public void CreerCle()

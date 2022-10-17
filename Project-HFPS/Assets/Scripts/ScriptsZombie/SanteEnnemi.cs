@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,14 @@ using UnityEngine;
 public class SanteEnnemi : MonoBehaviour
 {
     Animator animator;
+    GameObject gestion;
+    GameObject player;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        gestion = GameObject.Find("GestionZombies");
+        player = GameObject.Find("FPSController");
     }
 
     public int sante = 100;
@@ -19,7 +24,7 @@ public class SanteEnnemi : MonoBehaviour
 
         if (sante <= 0)
         {
-            Destroy(gameObject);
+            Mourir();
         }
     }
 
@@ -32,6 +37,9 @@ public class SanteEnnemi : MonoBehaviour
 
     public void Detruire()
     {
+        gestion.GetComponent<ZombiesSpawn>().SpawnZombie();
+        gestion.GetComponent<ZombiesSpawn>().SpawnZombie();
+        player.GetComponent<Points>().AddPoint();
         Destroy(gameObject);
     }
 }

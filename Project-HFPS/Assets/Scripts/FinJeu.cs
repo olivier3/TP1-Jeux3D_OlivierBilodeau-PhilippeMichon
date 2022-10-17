@@ -14,7 +14,11 @@ public class FinJeu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
 
+        GameObject joueur = GameObject.FindGameObjectWithTag("Joueur");
+        joueur.GetComponent<FirstPersonController>().enabled = true;
     }
 
     // Update is called once per frame

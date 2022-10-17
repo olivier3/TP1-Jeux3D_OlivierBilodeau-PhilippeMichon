@@ -21,7 +21,15 @@ public class GestionUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textFractionsBluePrint.text = "Blueprint: " + nbFractionsBluePrint + "/8";
+        if (nbFractionsBluePrint < 8)
+        {
+            textFractionsBluePrint.text = "Blueprint: " + nbFractionsBluePrint + "/8";
+            return;
+        }
+
+        textFractionsBluePrint.rectTransform.anchoredPosition = new Vector3(-100,
+            textFractionsBluePrint.rectTransform.anchoredPosition.y);
+        textFractionsBluePrint.text = "Blueprint complété";
     }
 
     public void AfficherMessagePourObjet(string message = "")

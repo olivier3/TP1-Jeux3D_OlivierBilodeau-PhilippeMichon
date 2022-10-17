@@ -62,6 +62,11 @@ public class GestionUI : MonoBehaviour
         return nbFractionsBluePrint;
     }
 
+    public long ObtenirNbPoints()
+    {
+        return nbPoints;
+    }
+
     public void CreerCle()
     {
         cleObtenu = true;

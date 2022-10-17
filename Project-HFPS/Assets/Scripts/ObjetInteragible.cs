@@ -29,18 +29,20 @@ public class ObjetInteragible : MonoBehaviour
             }
             else
             {
-                Destroy(this.gameObject);
+                GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>().PapierRecupere();
+
+                Destroy(objet);
             }
         }
 
-        if (compteur < 1000)
+        if (compteur < 100)
             compteur++;
     }
 
     private void OnTriggerEnter(Collider collider)
     {
         // compteur pour eviter faux true au debut
-        if (collider.transform.tag.Contains("Joueur") && compteur >= 1000)
+        if (collider.transform.tag.Contains("Joueur") && compteur >= 100)
         {
             estAccessible = true;
             GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>().AfficherMessagePourObjet("Cliquez droit pour ramasser l'objet");

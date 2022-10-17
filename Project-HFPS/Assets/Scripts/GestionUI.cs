@@ -10,8 +10,8 @@ public class GestionUI : MonoBehaviour
     private TextMeshProUGUI textFractionsBluePrint;
     private TextMeshProUGUI textPoints;
     private int nbFractionsBluePrint = 0;
-    private long nbPoints = 0;
-    private bool cleObtenu = false;
+    public long nbPoints = 0;
+    public bool cleObtenu = false;
 
     // Start is called before the first frame update
     void Start()

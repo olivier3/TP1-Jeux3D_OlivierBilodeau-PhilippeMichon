@@ -11,6 +11,7 @@ TagManager:
   - Arme
   - TutoChangerArme
   - Ennemi
+  - BoutonResultat
   layers:
   - Default
   - TransparentFX

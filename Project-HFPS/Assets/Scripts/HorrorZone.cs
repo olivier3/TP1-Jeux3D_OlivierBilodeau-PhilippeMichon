@@ -20,7 +20,7 @@ public class HorrorZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (!played)
+        if (collider.tag == "Joueur" && !played)
         {
             played = true;
             audioSource.Play();

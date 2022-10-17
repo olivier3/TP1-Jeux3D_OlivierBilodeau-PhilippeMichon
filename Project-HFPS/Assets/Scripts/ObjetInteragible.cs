@@ -18,32 +18,70 @@ public class ObjetInteragible : MonoBehaviour
     {
         if (estAccessible && Input.GetKeyDown(KeyCode.Mouse1))
         {
-            // enlever le message de pickup
-            GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>().AfficherMessagePourObjet();
+            GestionUI gestion = GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>();
 
             GameObject objet = this.gameObject.transform.parent.gameObject;
 
             if (objet.tag == "Arme")
             {
+                // enlever le message de pickup
+                gestion.AfficherMessagePourObjet();
                 objet.transform.GetComponent<Armes>().Ramasser(this.gameObject);
+                return;
             }
-            else
+
+            if (objet.name == "Table" &&
+                !gestion.CleDejaCree() &&
+                gestion.ObtenirNbPapiers() >= 8)
             {
-                Destroy(this.gameObject);
+                // enlever le message de pickup
+                gestion.AfficherMessagePourObjet();
+                gestion.CreerCle();
+                return;
+            }
+
+            if (objet.name.Contains("Clipboard"))
+            {
+                // enlever le message de pickup
+                gestion.AfficherMessagePourObjet();
+                gestion.PapierRecupere();
+                Destroy(objet);
             }
         }
 
-        if (compteur < 1000)
+        if (compteur < 100)
             compteur++;
     }
 
     private void OnTriggerEnter(Collider collider)
     {
         // compteur pour eviter faux true au debut
-        if (collider.transform.tag.Contains("Joueur") && compteur >= 1000)
+        if (collider.transform.tag.Contains("Joueur") && compteur >= 100)
         {
             estAccessible = true;
-            GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>().AfficherMessagePourObjet("Cliquez droit pour ramasser l'objet");
+
+            GameObject objet = this.gameObject.transform.parent.gameObject;
+            GestionUI gestion = GameObject.FindGameObjectWithTag("Canvas").transform.GetComponent<GestionUI>();
+
+            if (objet.name == "Table")
+            {
+                if (gestion.CleDejaCree())
+                {
+                    gestion.AfficherMessagePourObjet("La clé a déjà été créée");
+                    return;
+                }
+
+                if (gestion.ObtenirNbPapiers() >= 8)
+                {
+                    gestion.AfficherMessagePourObjet("Cliquez droit pour créer la clé");
+                    return;
+                }
+
+                gestion.AfficherMessagePourObjet("Le nombre de fragments du Blueprint est insuffisant");
+                return;
+            }
+
+            gestion.AfficherMessagePourObjet("Cliquez droit pour ramasser l'objet");
         }
     }
 
